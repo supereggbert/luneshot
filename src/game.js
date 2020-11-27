@@ -116,6 +116,16 @@ export class Game{
         document.body.appendChild( renderer.domElement );
         this.renderer = renderer;
 
+        window.addEventListener( 'resize', ()=>{
+            if(this.cam){
+                var camera = this.cam.camera
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+            }
+
+            renderer.setSize( window.innerWidth, window.innerHeight );
+        }, false );
+
         this.worldmap = new WorldMap(()=>{
             scene.add(this.worldmap.mesh);
             this.cam = new FollowCam(this.worldmap);
