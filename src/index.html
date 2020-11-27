@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<title>LuneShot - The Last Mech</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+<body>
+<div id="intro">
+    <video src=<%=require("../res/video/intro.mp4").default%> id="introvideo"></video>
+    <div class="introoverlay">
+        <div class="title"></div>
+        <div id="introStart">
+            <div id="showintro" class="button">Watch Intro</div>
+            <div id="begingame" class="button">Begin Game</div>
+        </div>
+    </div>
+    <div id="skip" class="button">Skip Intro</div>
+</div>
+<div id="game">
+    <div id="titleScreen">
+        <video id="backgroundvideo" src=<%=require("../res/video/background.mp4").default%>  autoplay muted loop></video>
+        <div class="title"></div>
+        <div class="menu">
+            <div id="loading">
+                <div class="loadicon"></div><br>
+                Loading
+            </div>
+            <div id="options">
+                <div id="startgame" class="button">New Game</div>
+                <h3>Instructions</h3>
+                <p>Used the [w,a,s,d] keys to move the mech</p>
+                <p>Hold [shift] to run</p>
+                <p>Use the mouse to target and fire</p>
+                <p>Hold [e] at sheild maintance points to recharge sheilds</p>
+            </div>
+            <div id="paused">
+                <div id="resumegame" class="button">Resume Game</div>
+                <div id="exitgame" class="button">Exit Game</div>
+            </div>
+        </div>
+    </div>
+    <div id="gameover">
+            <div class="title"></div>
+            <div class="gameovermenu">
+            <div class="overtitle">GAME OVER</div>
+            <div>
+                <div id="continue" class="button">Continue</div>
+                <div id="newgame" class="button">New Game</div>
+                <div id="exitgameover" class="button">Main Menu</div>
+            </div>
+            </div>
+    </div>
+    <div id="hud">
+        <div id="compasouter">
+            <div id="compas">
+
+            </div>
+        </div>
+        <div id="wave">Wave 1</div>
+        <div class="shields">
+            <h2>Shield Status</h2>
+            <div class="status"><span>West</span> <div class="levelbar"><div class="levelbarinner" id="shieldlevel1"></div></div></div>
+            <div class="status"><span>South</span> <div class="levelbar"><div class="levelbarinner" id="shieldlevel2"></div></div></div>
+            <div class="status"><span>North</span> <div class="levelbar"><div class="levelbarinner" id="shieldlevel3"></div></div></div>
+        </div>
+        <div class="chargeShield" id="chargeShield">
+            <div class="text">Press and hold "e" to regenerate the shield</div>
+            <div class="levelbar"><div class="levelbarinner" id="shieldcharge"></div></div>
+        </div>
+        <div class="mech">
+            <h2>Mech Status</h2>
+            <div class="status"><span>Armour</span> <div class="levelbar"><div class="levelbarinner" id="armour"></div></div></div>
+            <div class="status"><span>Charge</span> <div class="levelbar"><div class="levelbarinner" id="charge"></div></div></div>
+        </div>
+        <div class="battle">
+            <h2>Battle Status</h2>
+            <div class="status"><span>Wave</span> <div class="levelbar"><div class="levelbarinner" id="wavebar"></div></div></div>
+            <div class="status"><span>Score</span> <div class="text" id="score">00000000</div></div>
+            <div class="status"><span>High</span> <div class="text" id="highscore">00000000</div></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

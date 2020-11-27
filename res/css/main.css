@@ -1,0 +1,315 @@
+/* vietnamese */
+@font-face {
+    font-family: 'Goldman';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(../fonts/pe0uMIWbN4JFplR2HDpyB--7.woff2) format('woff2');
+    unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+  }
+  /* latin-ext */
+  @font-face {
+    font-family: 'Goldman';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(../fonts/pe0uMIWbN4JFplR2HDtyB--7.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  /* latin */
+  @font-face {
+    font-family: 'Goldman';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(../fonts/pe0uMIWbN4JFplR2HDVyBw.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+body{
+    margin: 0;
+    overflow: hidden;
+    cursor: url(../images/target.png) 16 16, auto;
+    font-family: 'Goldman', cursive;
+    background-color: #000;
+    width: 100vw;
+    height: 100vh;
+}
+*{
+    user-select: none;
+}
+
+#gameover{
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+    color: #fff;
+    backdrop-filter: blur(10px) sepia(90%);
+}
+#titleScreen{
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.title{
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    top: 20%;
+    background-image: url('../images/title.png');
+    width: 40%;
+    height: 20%;
+    background-size: contain;
+    transform: translate(-50%,-50%);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.menu{
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%,0);
+    color: #fff;
+    max-width: 800px;
+    text-align: center;
+}
+@keyframes spin { 
+    from { 
+        transform: rotate(0deg); 
+    } to { 
+        transform: rotate(360deg); 
+    }
+}
+.loadicon{
+    border: 30px solid #000;
+    border-bottom: 30px solid transparent;
+    border-top: 30px solid transparent;
+    width: 0px;
+    border-radius: 30px;
+    position: relative;
+    display: inline-block;
+    animation-name: spin;
+    animation-duration: 4000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    margin-bottom: 30px;
+}
+.loadicon:before{
+    content: '\A';
+    border: 40px solid rgba(255,255,255,0.5);
+    border-top: 40px solid transparent;
+    border-bottom: 40px solid transparent;
+    width: 0px;
+    border-radius: 40px;
+    position: absolute;
+    top: -40px;
+    left: -40px;
+    animation-name: spin;
+    animation-duration: 4000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+.loading{
+    font-size: 30px;
+}
+#options,#paused{
+    display: none;
+}
+.button{
+    display: block;
+    width: 200px;
+    border: 1px solid #fff;
+    font-size: 24px;
+    padding: 20px;
+    text-align: center;
+    margin: 10px auto;
+    border-radius: 5px;
+}
+.button:hover{
+    background-color: rgba(255,255,255,0.2);
+}
+.button:active{
+    background-color: rgba(255,255,255,0.4);
+}
+
+
+#hud{
+    position: absolute;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 2.5s ease;
+}
+#compasouter{
+    height: 25px;
+    width: 512px;
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translate(-50%,0);
+    background-image: url('../images/compasback.png');
+}
+#compas{
+    background-image: url('../images/compas.png');
+    background-size: 200%;
+    height: 25px;
+    width: 512px;
+}
+h2{
+    font-size: 16px;
+    padding-bottom: 5px;
+    margin: 0;
+    color: #eee;
+}
+.shields{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    color: #fff;
+}
+.mech{
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    color: #fff;
+}
+.battle{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    color: #fff;
+}
+.levelbar{
+    width: 200px;
+    border: 1px solid #fff;
+    padding: 3px;
+    height: 15px;
+    display: inline-block;
+}
+.levelbarinner{
+    background-image: url('../images/bar.png');
+    height: 15px;
+    width: 50%;
+}
+.status{
+    display: grid;
+    grid-template-columns: 80px auto;
+    padding-bottom: 5px;
+}
+@keyframes bounce {
+    0% { transform: translate(-50%, -1000%) scale(1.1); opacity: 0 }
+    5% { transform: translate(-50%, -50%) scale(1.8); opacity: 1 }
+    10% { transform: translate(-50%, -50%) scale(0.5); opacity: 1 }
+    15% { transform: translate(-50%, -50%) scale(0.95); opacity: 1 }
+    20% { transform: translate(-50%, -50%) scale(0.85); opacity: 1 }
+    100% { transform: translate(-50%, -50%) scale(0.85); opacity: 0 }
+}
+#wave{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 52px;
+    color: #fff;
+    opacity: 0;
+}
+#wave.anim{
+    animation-name: bounce;
+    animation-duration: 5000ms;
+    animation-timing-function: ease;
+    /*animation-iteration-count: infinite;*/
+    text-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+}
+.gameovermenu{
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    text-align: center;
+    transform: translate(-50%, 0);
+}
+.overtitle{
+    font-size: 42px;
+}
+.chargeShield{
+    position: absolute;
+    left: 50%;
+    bottom: 20%;
+    transform: translate(-50%,-50%);
+    font-size: 28px;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.text span{
+    display: inline-block;
+    width: 12px;
+    text-align: center;
+}
+video{
+    min-width: 100%;
+    min-height: 100%;
+}
+h3{
+    font-size: 30px;
+    padding-top: 30px;
+    margin: 0;
+}
+
+#game{
+    display: none;
+}
+.introoverlay{
+    opacity: 0;
+    transition: all 2s ease;
+}
+
+#intro{
+    background-color: #000;
+    color: #fff;
+    z-index: 1000;
+    opacity: 1;
+    transition: all 1s ease;
+    position:relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+#introStart{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+#skip{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display : none;
+}
+#introvideo{
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
